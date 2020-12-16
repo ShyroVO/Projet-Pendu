@@ -6,11 +6,16 @@
 
 body {
     font-size: 62.5%;
+    background: #f6f4e8;
 }
 
 h1 {
+    padding: 1rem;
     text-align: center;
     font-size: 2rem;
+    background: #bacec1;
+    color: #f6f4e8;
+    height: 5rem;
 }
 
 #contenues {
@@ -24,4 +29,40 @@ h1 {
 #pendu {
     height: 20rem;
     width: 20rem;
+}
+
+#penduLetters {
+    height: 4rem;
+    width: 25rem;
+    border: solid #e59560 0.3rem;
+}
+
+#lettersButtons {
+    height: auto;
+    width: 40rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#lettersButtons button{
+    padding: 1rem;
+    font-size: 1rem;
+    width: 10%;
+}
+
+#newWord {
+    padding: 1rem;
+    font-size: 1rem;
+    width: 10rem;
+}
+
+#lettersButtons button:hover, #newWord:hover {
+    background: #bacec1;
+ }
+
+#console {
+    font-size: 1rem;
+    height: 4rem;
+    padding: 2rem;
 }
