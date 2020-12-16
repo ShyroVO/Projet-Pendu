@@ -33,7 +33,7 @@ h1 {
 
 #penduLetters {
     height: 4rem;
-    width: 25rem;
+    width: auto;
     border: solid #e59560 0.3rem;
 }
 
@@ -65,4 +65,11 @@ h1 {
     font-size: 1rem;
     height: 4rem;
     padding: 2rem;
+}
+
+#penduLetters button {
+    height: 100%;
+    width: 5rem;
+    border: none;
+    background: none;
 }
