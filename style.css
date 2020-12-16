@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 62.5%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+#contenues {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#pendu {
+    height: 20rem;
+    width: 20rem;
+}
