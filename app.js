@@ -52,14 +52,12 @@ function penduImage (pts) {
 let valeurButton = document.getElementsByClassName('lettersBtn');
 
 // Letters true or false / Win or Loose:
-let winPts = 0;
+let winPts = 1;
 
 for (let valeursButtons of valeurButton) {
 
     valeursButtons.addEventListener('click', function () {
         document.getElementById('console').innerHTML += " " + valeursButtons.innerHTML + " - ";
-
-        let vBtn = "'" + valeursButtons.innerHTML + "'";
 
         // Win:
         if (winPts === arrayWord.length){
@@ -67,9 +65,9 @@ for (let valeursButtons of valeurButton) {
             window.location.reload();
         }
         // Correct letter:
-        else if (vBtn === arrayWord){
+        else if (arrayWord.indexOf(valeursButtons.innerHTML) >= 0){
             winPts++;
-            console.log("La lettre ce trouve dans le mot");
+            console.log("La lettre ce trouve dans le mot: " + arrayWord.indexOf(valeursButtons.innerHTML));
         }
         // Loose:
         else {
@@ -85,30 +83,4 @@ for (let valeursButtons of valeurButton) {
         }
 
     })
-
-}
-
-/*
-if(){
-    coupsManques++;
-    document.images['pendu'].src="images/pendu_"+coupsManques+".jpg"; // On change l'image du pendu
-
-    // Si on a raté 9 fois :
-    if(coupsManques==9){
-        alert("Vous avez perdu !");
-        for(var i=0; i<tailleMot; i++) tableauMot[i].style.visibility='visible';
-        fini=true;
-        // on affiche le mot, on fini le jeu
-    }
-}
-if(lettresTrouvees==tailleMot){
-    alert("Bravo ! Vous avez découvert le mot secret !");
-    fini=true;
-}
-}
-*/
-
-// Switch image:
-function imagePendu(points, img) {
-    img.png = points + ".png";
 }
