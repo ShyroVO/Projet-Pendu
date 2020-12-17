@@ -37,7 +37,7 @@ img.style.width = "100%";
 img.style.height = "100%";
 
 function penduImage (pts) {
-    img.src = pts +".png";
+    img.src = pts +".PNG";
     document.getElementById('pendu').appendChild(img);
 }
 
