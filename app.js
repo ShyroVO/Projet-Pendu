@@ -4,11 +4,11 @@ let dictionnaire = [
     "FOU", "FONDU",
     "GRAND",
     "HERO",
-    "IMAGINATION",
-    "MONNAIE",
+    "IMAGE",
+    "MONT",
     "OPERCULE",
     "JEROME",
-    "PENDU", "PONEY", "PERDRE",
+    "PENDU", "PONEY", "PERDANT",
     "ZONEZ",
 ]
 let life = 7;
@@ -20,12 +20,7 @@ function getRandom(){
 
 let randomWord = dictionnaire[getRandom()];
 let withWord = randomWord.length;
-
 let arrayWord = Array.from(randomWord);
-
-console.log(withWord);
-console.log(arrayWord);
-
 let i;
 
 for ( i = 0; i < withWord; i++) {
@@ -33,8 +28,7 @@ for ( i = 0; i < withWord; i++) {
 
     document.getElementById('penduLetters').appendChild(letters);
     letters.innerHTML = "_";
-    letters.id = "'letter" + [i] + "'";
-
+    letters.id = "letter" + [i];
 }
 
 // Pendu Image:
@@ -47,15 +41,13 @@ function penduImage (pts) {
     document.getElementById('pendu').appendChild(img);
 }
 
-
 // Valeur buttons:
 let valeurButton = document.getElementsByClassName('lettersBtn');
 
-// Letters true or false / Win or Loose:
+// Letters Win or Loose:
 let winPts = 1;
 
 for (let valeursButtons of valeurButton) {
-
     valeursButtons.addEventListener('click', function () {
         document.getElementById('console').innerHTML += " " + valeursButtons.innerHTML + " - ";
 
@@ -67,20 +59,20 @@ for (let valeursButtons of valeurButton) {
         // Correct letter:
         else if (arrayWord.indexOf(valeursButtons.innerHTML) >= 0){
             winPts++;
-            console.log("La lettre ce trouve dans le mot: " + arrayWord.indexOf(valeursButtons.innerHTML));
+
+            let position = arrayWord.indexOf(valeursButtons.innerHTML);
+            let idButton = document.getElementById('letter'+position);
+            idButton.innerHTML = valeursButtons.innerHTML;
         }
         // Loose:
         else {
             penduImage(life);
             life --;
-            console.log("1 vie perdu, reste:" + life + " vie.");
 
             if (life === 0) {
                 alert("Vous avez perdu !");
                 window.location.reload();
             }
-
         }
-
     })
 }
