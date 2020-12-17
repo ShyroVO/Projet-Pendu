@@ -1,15 +1,23 @@
 let dictionnaire = [
-    "ARMOIRE",
-    "CHEVAL", "CLAVIER",
-    "FOU", "FONDU",
+    "ARMOIRE", "ANE",
+    "CHAT", "CHEVAL","CHIEN", "CLAVIER", "COQ", "CERF",
+    "DODO",
+    "FOU", "FONDU", "FLEUR",
     "GRAND",
     "HERO",
     "IMAGE",
-    "MONT",
+    "JEROME", "JOCKEY", "JOURNAL",
+    "KALEIDOSCOPE",
+    "LYNX", "LOGICIEL", "LABYRINTHE",
+    "MONT", "MULE",
     "OPERCULE",
-    "JEROME",
-    "PENDU", "PONEY", "PERDANT",
-    "ZONEZ",
+    "PENDU", "PONEY","POULE", "PERDANT",
+    "RENARD",
+    "SEUL",
+    "TRIANGLE",'TREX',
+    "UTOPIQUE",
+    "VACHE", "VIN",
+    "ZONY", "ZORSE",
 ]
 let life = 7;
 
@@ -51,17 +59,17 @@ for (let valeursButtons of valeurButton) {
     valeursButtons.addEventListener('click', function () {
         document.getElementById('console').innerHTML += " " + valeursButtons.innerHTML + " - ";
 
+        let position = arrayWord.indexOf(valeursButtons.innerHTML);
+        let idButton = document.getElementById('letter'+position);
+
         // Win:
         if (winPts === arrayWord.length){
             alert("Vous avez gagner !");
             window.location.reload();
         }
         // Correct letter:
-        else if (arrayWord.indexOf(valeursButtons.innerHTML) >= 0){
+        else if (arrayWord.indexOf(valeursButtons.innerHTML) >= 0 && (idButton.innerHTML !== valeursButtons.innerHTML)){
             winPts++;
-
-            let position = arrayWord.indexOf(valeursButtons.innerHTML);
-            let idButton = document.getElementById('letter'+position);
             idButton.innerHTML = valeursButtons.innerHTML;
         }
         // Loose:
@@ -70,9 +78,16 @@ for (let valeursButtons of valeurButton) {
             life --;
 
             if (life === 0) {
-                alert("Vous avez perdu !");
+                alert("Vous avez perdu ! Le mot étais: " + randomWord);
                 window.location.reload();
             }
         }
     })
 }
+
+// New word :
+let newWordBtn = document.getElementById('newWord');
+
+newWordBtn.addEventListener('click', function (){
+    window.location.reload();
+})
